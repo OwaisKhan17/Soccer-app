@@ -1,5 +1,5 @@
 // Import necessary libraries and components
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 import './App.css';
 import PlayerForm from "./Player/PlayerForm";

@@ -1,5 +1,4 @@
-// Import necessary React component and hooks
-import React from 'react';
+import PropTypes from 'prop-types';
 
 // Define the PlayerSingle component which receives 'currentPlayer' prop
 const PlayerSingle = ({ currentPlayer }) => {
@@ -34,6 +33,20 @@ const PlayerSingle = ({ currentPlayer }) => {
         </div>
     );
 }
+
+PlayerSingle.propTypes = {
+    currentPlayer: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        phone: PropTypes.number.isRequired,
+        email: PropTypes.string.isRequired,
+        strength: PropTypes.number.isRequired,
+        endurance: PropTypes.number.isRequired,
+        ability: PropTypes.number.isRequired,
+        techniques: PropTypes.number.isRequired,
+        team: PropTypes.string.isRequired
+    }).isRequired
+};
 
 // Export the PlayerSingle component as the default export of this module
 export default PlayerSingle;

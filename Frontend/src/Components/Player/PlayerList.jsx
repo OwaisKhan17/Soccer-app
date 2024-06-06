@@ -1,5 +1,4 @@
-// Import necessary React component and hooks
-import React from 'react';
+import PropTypes from 'prop-types';
 
 // Define the PlayerList component which receives two props: 
 // 'players' (an array of player objects) and 'updateCurrentPlayer' (a function to update the current player)
@@ -28,6 +27,15 @@ const PlayerList = ({ players, updateCurrentPlayer }) => {
         </div>
     );
 }
+
+PlayerList.propTypes = {
+    players: PropTypes.arrayOf(PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired
+    })).isRequired,
+    updateCurrentPlayer: PropTypes.func.isRequired
+};
 
 // Export the PlayerList component as the default export of this module
 export default PlayerList;
