@@ -1,8 +1,10 @@
-import React, { useRef } from "react"
-import axios from "axios"
+// Import necessary libraries
+import React, { useRef } from "react";
+import axios from "axios";
 
+// Define the PlayerForm component
 const PlayerForm = () => {
-
+    // Define references for each input field
     const firstNameRef = useRef(null);
     const lastNameRef = useRef(null);
     const phoneRef = useRef(null);
@@ -14,9 +16,11 @@ const PlayerForm = () => {
     const techniquesRef = useRef(null);
     const tacticalRef = useRef(null);
 
+    // Function to handle form submission
     const submitPlayer = (e) => {
-        e.preventDefault()
+        e.preventDefault(); // Prevent default form submission behavior
 
+        // Send a POST request to the server with the form data
         axios.post("http://localhost:4000/players", {
             firstName: firstNameRef.current.value,
             lastName: lastNameRef.current.value,
@@ -29,10 +33,11 @@ const PlayerForm = () => {
             techniques: techniquesRef.current.value,
             tactical: tacticalRef.current.value
         })
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error))
-    }
+            .then((response) => console.log(response)) // Log the server response
+            .catch((error) => console.log(error)); // Log any errors
+    };
 
+    // Return the JSX for the form
     return (
         <div className="row">
             <h1 className="center">Add a new player</h1>
@@ -90,7 +95,8 @@ const PlayerForm = () => {
                 <button className="btn waves-effect waves-light" type="submit" name="action">Add Player</button>
             </form>
         </div>
-    )
+    );
 }
 
-export default PlayerForm
+// Export the PlayerForm component as the default export of this module
+export default PlayerForm;
